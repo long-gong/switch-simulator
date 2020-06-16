@@ -436,7 +436,7 @@ static void usage()
     (void) fprintf(stderr, "-%s\t\t%s\n", "s", "set user flag 4");
     (void) fprintf(stderr, "-%s\t\t%s\n", "b", "set user flag 5");
     (void) fprintf(stderr, "-%s %s\t\t%s\n",
-        "n", "size", "specify N (default 32)");
+        "n", "size", "specify N, number of input/output ports (default 32)");
     (void) fprintf(stderr, "-%s %s\t%s\n",
         "m", "frames", "specify number of macroframes (default N*500)");
     (void) fprintf(stderr, "-%s %s\t%s\n",

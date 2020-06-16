@@ -280,21 +280,8 @@ int main(int argc,char **argv)
     current_wfi = 0;
     while (strcmp(func_list[alg_option].name,"#END") != 0)
     {
-        // if (strcmp(func_list[alg_option].name,"LQF_Serena") != 0)
-        // {
-        //     current_wfi = 0;
-        //     sprintf(alg_name_bk,"%s",func_list[alg_option].name);
-        //     while (current_wfi < maximum_wfi)
-        //     {
-        //         sprintf(func_list[alg_option].name,"%s(%d)",alg_name_bk,current_wfi);
-        //         set_alg_name();
-        //         run_main_loop();
-        //         ++ current_wfi;
-        //     }
-        //     memset(alg_name_bk,0,1024);            
-        // }
         if (NULL != strstr(func_list[alg_option].name, "FQPS_VR")){
-            // function name contain FQPS_VR
+            /* function name contain FQPS_VR */
             param_bk = func_list[alg_option].param->value;
             memset(alg_name_bk, 0, 1024);
             strcpy(alg_name_bk, func_list[alg_option].name);

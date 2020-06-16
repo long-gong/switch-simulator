@@ -5,7 +5,7 @@ CXX := g++
 RM = gio trash -f 
 MKDIRS = mkdir -p
 CLEAN_TEMPORARIES = $(RM) $(EXPONEDIR) $(EXPTWODIR)
-
+MEMCHECK = valgrind --leak-check=yes
 
 TOP := $(shell pwd)
 SRCDIR = $(TOP)/src
@@ -65,12 +65,20 @@ $(EXPTWODIR)/%.o: $(SRCDIR)/%.$(SRCEXT) $(EXPTWODIR)
 
 experiment: $(BUILD)/ss_experiment_one $(BUILD)/ss_experiment_two
 	echo " Performing Experiments ..."
-	$(BUILD)/ss_experiment_one
-	$(BUILD)/ss_experiment_two
+	(cd $(BUILD) && ./ss_experiment_one)
+	(cd $(BUILD) && ./ss_experiment_two)
+
+test: $(BUILD)/ss_experiment_one $(BUILD)/ss_experiment_two
+	echo " Testing ..."
+	(cd $(BUILD) && ./ss_experiment_one -n 8 -m 10)
+	(cd $(BUILD) && ./ss_experiment_two -n 8 -m 10)
+	echo " Memory Leak Testing ..."
+	(cd $(BUILD) && $(MEMCHECK) ./ss_experiment_one -n 8 -m 10)
+	(cd $(BUILD) && $(MEMCHECK) ./ss_experiment_two -n 8 -m 10)	
 
 clean:
 	@echo " Cleaning ..."; 
 	$(RM) $(BUILD)
 
 
-.PHONY: clean clean-intermediate
+.PHONY: clean clean-intermediate test
