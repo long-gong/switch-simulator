@@ -11,7 +11,7 @@ Simulation codes for our switching paper:
     .
     ├── config_experiment_one.cfg        Confiuration for experiment one
     ├── config_experiment_two.cfg        Confiuration for experiment two  
-    ├── cxx                              Directory for C++ code (required C++11 support)
+    ├── cxx                              Directory for C++ code (C++11 support REQUIRED)
     │   └── random_variable.cpp             
     ├── include                          Directory for C header files
     │   ├── common.h
