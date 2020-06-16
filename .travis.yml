@@ -1,5 +1,8 @@
 language: c
 
+dist: trusty
+sudo: false
+
 matrix:
   include:
       # g++ 6 on Linux with C++11
