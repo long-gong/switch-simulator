@@ -1,5 +1,7 @@
 # SWITCH SIMULATOR
 
+[![Build Status](https://travis-ci.org/long-gong/switch-simulator.svg?branch=master)](https://travis-ci.org/long-gong/switch-simulator)
+
 Simulation codes for our switching paper:
 
 [Long Gong](https://lgong30.github.io/), Paul Tune, Liang Liu, Sen Yang, and [Jun (Jim) Xu](https://www.cc.gatech.edu/home/jx/). 2017. [Queue-Proportional Sampling: A Better Approach to Crossbar Scheduling for Input-Queued Switches](https://www.cc.gatech.edu/home/jx/reprints/Gong%20et%20al.%20-%202017%20-%20Queue-Proportional%20Sampling%20A%20Better%20Approach%20to%20.pdf). Proc. ACM Meas. Anal. Comput. Syst. 1, 1, Article 3 (June 2017), 33 pages. DOI:https://doi.org/10.1145/3084440
