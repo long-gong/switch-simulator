@@ -2,11 +2,8 @@ language: c
 
 matrix:
   include:
-      # Documentation
-    - env: BUILD=Doc
-      sudo: required
       # g++ 6 on Linux with C++11
-    - env: COMPILER=g++-6 BUILD=Debug STANDARD=11
+    - env: COMPILER=g++-6 STANDARD=11
       compiler: gcc
       addons:
         apt:
@@ -16,7 +13,7 @@ matrix:
           packages:
             - g++-6
      # g++ 8 on Linux with C++11
-    - env: COMPILER=g++-8 BUILD=Debug STANDARD=11
+    - env: COMPILER=g++-8 STANDARD=11
       compiler: gcc
       addons:
         apt:
@@ -31,7 +28,7 @@ matrix:
       compiler: clang
       os: osx
       # clang 6.0 on Linux with C++11 
-    - env: COMPILER=clang++-6.0 BUILD=Debug STANDARD=11
+    - env: COMPILER=clang++-6.0 STANDARD=11
       compiler: clang
       addons:
         apt:
@@ -43,7 +40,7 @@ matrix:
             - llvm-toolchain-trusty
             - llvm-toolchain-trusty-6.0
       # clang 4.0 on Linux with C++11
-    - env: COMPILER=clang++-4.0 BUILD=Debug STANDARD=11
+    - env: COMPILER=clang++-4.0 STANDARD=11
       compiler: clang
       addons:
         apt:
@@ -55,11 +52,10 @@ matrix:
             - llvm-toolchain-trusty
             - llvm-toolchain-trusty-4.0
       # g++ 4.8 on Linux with C++11
-    - env: COMPILER=g++-4.8 BUILD=Debug STANDARD=11
+    - env: COMPILER=g++-4.8 STANDARD=11
       compiler: gcc
 
 before_script:
-  - if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then export CXX=${COMPILER}; fi
-  - if [[ "${BUILD}" != "Doc" ]]; then ${CXX} --version; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then export CXX=${COMPILER}; export CC=${COMPILER}; ${CXX} --version; fi
 
 script: make

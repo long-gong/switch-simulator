@@ -2,7 +2,11 @@
  
 CC := gcc 
 CXX := g++
+ifneq (,$(shell which gio))
 RM = gio trash -f 
+else 
+RM = rm -rf
+endif
 MKDIRS = mkdir -p
 CLEAN_TEMPORARIES = $(RM) $(EXPONEDIR) $(EXPTWODIR)
 MEMCHECK = valgrind --leak-check=yes
